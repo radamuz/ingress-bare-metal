@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nx-dep-for-test-ingr2
+  labels:
+    app: nx2
+spec:
+  replicas: 20
+  selector:
+    matchLabels:
+      app: nx2
+  template:
+    metadata:
+      labels:
+        app: nx2
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        command:
+          - sh
+          - -c
+          - echo el hostname es este $HOSTNAME, además este es el deployment 2 > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'
