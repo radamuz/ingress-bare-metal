@@ -4,4 +4,4 @@
 #### Hacer port forwarding 
 `kubectl port-forward service/nx-service3 --address 0.0.0.0 8080:80`
 
-`kubectl port-forward service/nx-service3 --address 0.0.0.0 -n <NAMESPACE> <PURTO-HOST>:<PUERTO-SERVICIO>`
+`kubectl port-forward service/nx-service3 --address 0.0.0.0 -n <NAMESPACE> <PUERTO-HOST>:<PUERTO-SERVICIO>`
