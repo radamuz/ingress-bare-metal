@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nx-service3
+spec:
+  selector:
+    app: nx3
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
