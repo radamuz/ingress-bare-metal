@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nx-dep-for-test-ingr3
+  labels:
+    app: nx3
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nx3
+  template:
+    metadata:
+      labels:
+        app: nx3
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        command: ["/bin/sh", "-c"]
+        args: 
+          - echo "el hostname es este $HOSTNAME, <a href="/talaia.html">Ir a talaia</a>" > /usr/share/nginx/html/index.html && 
+            echo ¡esto es talaia! $HOSTNAME > /usr/share/nginx/html/talaia.html && 
+            nginx -g 'daemon off;'
+
+
