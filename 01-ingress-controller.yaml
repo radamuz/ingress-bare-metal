@@ -279,13 +279,13 @@ spec:
     - name: http
       port: 80
       protocol: TCP
-      targetPort: http
-      nodePort: 80
+      targetPort: http 
+      nodePort: 80 # Si no se especifica esta línea, nodePort será aleatorio
     - name: https
       port: 443
       protocol: TCP
-      targetPort: https
-      nodePort: 443
+      targetPort: https 
+      nodePort: 443 # Si no se especifica esta línea, nodePort será aleatorio
   selector:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/instance: ingress-nginx
