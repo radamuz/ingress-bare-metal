@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-with-hosts3
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /talaia.html
+spec:
+  rules:
+  - host: "talaia.mini.kube"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: nx-service3
+            port:
+              number: 80
